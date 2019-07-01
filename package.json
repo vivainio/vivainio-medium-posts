@@ -1,0 +1,8 @@
+{
+  "name": "vivainio-medium-posts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vivainio/vivainio-medium-posts.git",
+  "author": "Ville M. Vainio <ville.vainio@basware.com>",
+  "license": "MIT"
+}
