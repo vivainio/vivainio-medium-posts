@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>With latest TypeScript, you may not need Webpack</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">With latest TypeScript, you may not need Webpack</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+(You won’t need Browserify either, but that’s not as catchy a headline)
+</section>
+<section data-field="body" class="e-content">
+<section name="bc7b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1e50" id="1e50" class="graf graf--h3 graf--leading graf--title">With latest TypeScript, you may not need Webpack</h3><figure name="4807" id="4807" class="graf graf--figure graf-after--h3"><div class="aspectRatioPlaceholder is-locked" style="max-width: 677px; max-height: 450px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 66.5%;"></div><img class="graf-image" data-image-id="0*DFCZqJ3vRVQ1vzKi.jpg" data-width="677" data-height="450" src="https://cdn-images-1.medium.com/max/800/0*DFCZqJ3vRVQ1vzKi.jpg"></div></figure><p name="afc4" id="afc4" class="graf graf--p graf-after--figure">(You won’t need Browserify either, but that’s not as catchy a headline)</p><p name="36a2" id="36a2" class="graf graf--p graf-after--p"><em class="markup--em markup--p-em">Update for May 2018: many have pointed out that this approach won’t work if you have dependencies that are not provided as concateable UMD bundles. This is true. Look into modern options like ParcelJS if you need that.</em></p><p name="d390" id="d390" class="graf graf--p graf-after--p">In the olden days, when you bought a compiler for your PC, it came with a linker on the same box. With JavaScript, the two have been divorced. Somehow, we didn’t understand what the linking part should look like, so we ended up innovating on a bunch of creative solutions, much to the dismay of programmers just wanting to work on their app instead of build tooling.</p><p name="b32b" id="b32b" class="graf graf--p graf-after--p">TypeScript 1.8 brings the linker back to the compiler suite, as announced in <a href="https://github.com/Microsoft/TypeScript/wiki/What%27s-new-in-TypeScript#concatenate-amd-and-system-modules-with---outfile" data-href="https://github.com/Microsoft/TypeScript/wiki/What%27s-new-in-TypeScript#concatenate-amd-and-system-modules-with---outfile" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">this deceptively downplayed feature section</a>. Essentially, you point the compiler at your entry point TypeScript file (e.g. ‘app.ts’), and it emits a single bundled JS file after traversing all your imports.</p><p name="2e7c" id="2e7c" class="graf graf--p graf-after--p">The command you slap in your build script is essentially</p><pre name="57df" id="57df" class="graf graf--pre graf-after--p">$ tsc --watch -m system --outFile out.js app.ts</pre><p name="d4a8" id="d4a8" class="graf graf--p graf-after--pre">Don’t let “SystemJS” put you off — while SystemJS, like Webpack, is a baroque tool with in-browser transpilation, loader plugins and the works, none of that is at play here! The only parts used are <em class="markup--em markup--p-em">System.register()</em> and <em class="markup--em markup--p-em">System.import()</em> — <em class="markup--em markup--p-em">register()</em> is the wrapper around your modules in the bundle, and <em class="markup--em markup--p-em">import()</em> is what you’ll call to start your app (probably in index.html or equivalent).</p><p name="7c27" id="7c27" class="graf graf--p graf-after--p">There are some “hard”, somewhat overlapping benefits for TSC bundling:</p><ul class="postList"><li name="56b9" id="56b9" class="graf graf--li graf-after--p">Single component (TypeScript compiler) to track for problems and bug reports. If something like source maps break, you know it’s typescript instead of one the more fractured plugins/transformations floating around the web.</li><li name="c509" id="c509" class="graf graf--li graf-after--li">That single component comes from Microsoft, as opposed to various loaders/plugins maintained through part time/volunteer basis.</li><li name="90c7" id="90c7" class="graf graf--li graf-after--li">It’s faster. Testing with our app, TSC bundling was more than two times faster than Browserify + Tsify for a clean build.</li><li name="af93" id="af93" class="graf graf--li graf-after--li">You can launch it by just running an executable without external configuration, even from build.bat if you are so inclined. If you are interested in extra speed on Windows, you can even download ChakraCore-enabled tsc.exe from NuGet, drop it in place of the node-hosted “tsc” script and go to town.</li></ul><p name="0385" id="0385" class="graf graf--p graf-after--li">As well as some softer ones:</p><ul class="postList"><li name="10df" id="10df" class="graf graf--li graf-after--p">SystemJS modules behave like ES6 modules. Imitating ES6 syntax with CJS (as in Webpack or Browserify) gives you “useful” semantic power that is not in ES6 spec; namely, imports are executed on the line they appear, as opposed to beginning of the module like they should.</li><li name="0b75" id="0b75" class="graf graf--li graf-after--li">System.register() is being standardized as a module bundling API. Don’t know the stage of it (or even how much it matters), but it can help future interoperability with third party modules.</li></ul><p name="7f46" id="7f46" class="graf graf--p graf-after--li">Summary: do not multiply objects without necessity. Before setting up a majestic build pipeline funneling Typescript to Babel to Webpack, see if you can get your job done with a simpler, gentler approach.</p><p name="eaf0" id="eaf0" class="graf graf--p graf-after--p"><em class="markup--em markup--p-em">Disclaimer: it’s a new feature — suitability for your application may vary. Proceed with the usual caution and fear.</em></p><p name="0c9f" id="0c9f" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Update</strong>: some users have found SystemJS library too big for their needs. It’s 15kb when minified and gzipped; for small applications this may be too expensive. A lightweight alternative is to use the AMD module format (<em class="markup--em markup--p-em">tsc -m amd</em>) and A<a href="https://github.com/requirejs/almond" data-href="https://github.com/requirejs/almond" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">lmond</a>, which goes all the way down to 1kb when minified and zipped! While AMD is increasingly being perceived as a receding module format, it can still act as a light alternative to SystemJS, depending on your interop needs.</p><p name="244c" id="244c" class="graf graf--p graf-after--p graf--trailing"><strong class="markup--strong markup--p-strong">Update</strong>: Einari Naukkarinen has created a <a href="https://github.com/enaukkarinen/modest-tsc-ng1-boilerplate" data-href="https://github.com/enaukkarinen/modest-tsc-ng1-boilerplate" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">minimal boilerplate project for an Angular 1 application</a> using the described mechanism, with Almond module loader. This is the same mechanism we are currently using to bundle one of our larger SPA’s at <a href="http://www.basware.com/about-us/careers" data-href="http://www.basware.com/about-us/careers" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Basware</a>.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@vivainio" class="p-author h-card">Ville M. Vainio</a> on <a href="https://medium.com/p/417d2ef0e773"><time class="dt-published" datetime="2016-03-19T15:37:07.711Z">March 19, 2016</time></a>.</p><p><a href="https://medium.com/@vivainio/with-latest-typescript-you-may-not-need-webpack-417d2ef0e773" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 1, 2019.</p></footer></article></body></html>

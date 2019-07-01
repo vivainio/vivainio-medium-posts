@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Not a TypeScript fan?</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Not a TypeScript fan?</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Ongoing theme in TypeScript community is that once you switch to TypeScript, you don’t want to go back (to Babel or whatever). I bumped…
+</section>
+<section data-field="body" class="e-content">
+<section name="527b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c189" id="c189" class="graf graf--h3 graf--leading graf--title">Not a TypeScript fan?</h3><p name="6194" id="6194" class="graf graf--p graf-after--h3">Ongoing theme in TypeScript community is that once you switch to TypeScript, you don’t want to go back (to Babel or whatever). I bumped into a <a href="https://medium.com/@amcdnl/why-i-m-not-a-typescript-fan-c5057d76aaa4" data-href="https://medium.com/@amcdnl/why-i-m-not-a-typescript-fan-c5057d76aaa4" class="markup--anchor markup--p-anchor" target="_blank">post listing some of the reasons</a> why you may prefer to steer clear of TypeScript, which is as good a reason as any to debunk some of the popular myths and misunderstandings around the topic.</p><p name="09a1" id="09a1" class="graf graf--p graf-after--p">This post turned out to be longer than what I usually want to write, apologies for that. I sneaked in some items I have been willing to blog about anyway, now that the opportunity presented itself.</p><h4 name="965c" id="965c" class="graf graf--h4 graf--startsWithDoubleQuote graf-after--p">“Not da standard”</h4><blockquote name="4d05" id="4d05" class="graf graf--blockquote graf-after--h4">I’d be will to bet in 3 years JavaScript will still be around without a doubt but I can’t say the latter for TypeScript.</blockquote><p name="b4bd" id="b4bd" class="graf graf--p graf-after--blockquote">I used to have that concern before Angular 2 adopted TypeScript. Lots of folks wanted to jump on the TypeScript bandwagon much earlier, but it needed “non-Microsoft validation” to close the deal. Technical superiority is of limited value unless you have community confidence to back it up.</p><p name="e46c" id="e46c" class="graf graf--p graf-after--p">If you are making a “3 year bet” on a project, you have all the more reasons to start hardening your project with types. At that scope, you are eventually going to have a bad time maintaining and growing with an untyped mess.</p><h4 name="2225" id="2225" class="graf graf--h4 graf--startsWithDoubleQuote graf-after--p">“You know its gonna happen…”</h4><blockquote name="e550" id="e550" class="graf graf--blockquote graf-after--h4">Its inevitable that types are going to land in JavaScript sooner than later. To be honest, I’m surprised with all the ❤ JavaScript has gotten lately its not stage-0 by now. As soon as those land, things like TypeScript will be obsolete and technical debt to remove.</blockquote><p name="4cce" id="4cce" class="graf graf--p graf-after--blockquote">My money is on types not landing in ES standard. Here’s why:</p><ul class="postList"><li name="f7f6" id="f7f6" class="graf graf--li graf-after--p">Types are not a single feature that can just “land”. Modern type systems are advanced constructs that need a lot of time to build out, let alone standardize.</li><li name="d9d4" id="d9d4" class="graf graf--li graf-after--li">JavaScript is first and foremost a runtime that specifies how code will run in the browser. Runtime needs to be standardized, because it needs to behave compatibly on different browsers. Compile time doesn’t need to be standardized; it’s nice to have a standard for marketing reasons, but if you have a cross platform open source implementation there is no reason you couldn’t just use that implementation as is.</li><li name="bc4d" id="bc4d" class="graf graf--li graf-after--li">Type system would just be dead weight (i.e. extra complexity) for other compile-to-js languages that implement their own, sometimes very sophisticated type systems. Think Elm, PureScript, FunScript, Kotlin, ScalaScript, ClojureScript etc. Shoehorning a “lesser” type system system to JavaScript would limit innovation in this area.</li><li name="0031" id="0031" class="graf graf--li graf-after--li">Standardizing something slows everything down, and doesn’t guarantee a payback. Just follow the Node discussions around ES6 modules for proof.</li><li name="1451" id="1451" class="graf graf--li graf-after--li">Obligatory “appeal to authority” fallacy: Brendan Eich recently said he doesn’t see it happening, at least in the runtime.</li></ul><p name="6b52" id="6b52" class="graf graf--p graf-after--li">If I turn out to be completely wrong about this bet, and JavaScript indeed standardizes a degree of type system, it will be handled by a future version of TypeScript: just use the newly standardized constructs in the areas where they apply, and keep the more advanced type checking in TypeScript.</p><h4 name="4fff" id="4fff" class="graf graf--h4 graf--startsWithDoubleQuote graf-after--p">“Its been around and gotten no ❤”</h4><blockquote name="29a4" id="29a4" class="graf graf--blockquote graf-after--h4">TypeScript has been since 2012!!! I believe the only reason its gotten popular lately is because of Angular2. I think thats kinda a red flag in my book but thats just me talking…</blockquote><p name="1f90" id="1f90" class="graf graf--p graf-after--blockquote">People that most benefit from TypeScript are those from conservative shops that build big products. They are the kind that tend to wait for proofs.</p><p name="c59c" id="c59c" class="graf graf--p graf-after--p">If you take a look at current TypeScript tooling, it is receiving lots of love. Or Google trends:</p><figure name="2669" id="2669" class="graf graf--figure graf-after--p"><div class="aspectRatioPlaceholder is-locked" style="max-width: 677px; max-height: 405px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 59.8%;"></div><img class="graf-image" data-image-id="1*Ci8Hx6zF3RvKugW-hso09Q.png" data-width="677" data-height="405" src="https://cdn-images-1.medium.com/max/800/1*Ci8Hx6zF3RvKugW-hso09Q.png"></div></figure><h4 name="4706" id="4706" class="graf graf--h4 graf--startsWithDoubleQuote graf-after--figure">“Not Community Driven”</h4><blockquote name="c2e6" id="c2e6" class="graf graf--blockquote graf-after--h4">I don’t see a lot of community involvement driving the spec / grammar / language like I do with even experimental features I see in ES*. I could be looking in the wrong places but shouldn’t they be looking to the community and only building that instead of implementing C# in JavaScript?!</blockquote><p name="079f" id="079f" class="graf graf--p graf-after--blockquote">Easily accessible place to follow what is going to happen is the <a href="https://github.com/Microsoft/TypeScript/wiki/Roadmap" data-href="https://github.com/Microsoft/TypeScript/wiki/Roadmap" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">TypeScript roadmap</a>. You can click through the links and participate in the discussions. Senior developers hang around Gitter and read your questions and feedback, should the need arise.</p><p name="4fc4" id="4fc4" class="graf graf--p graf-after--p">You will likely have a much better chance on having an impact on a project that is “freely” implementing stuff than a language standardization process.</p><p name="cff2" id="cff2" class="graf graf--p graf-after--p">TypeScript is necessarily a more conservative project than “I’ll whip up my own Babel plugin and publish on npm”, and as a user of this technology I hope they keep it that way.</p><h4 name="464d" id="464d" class="graf graf--h4 graf--startsWithDoubleQuote graf-after--p">“A square in a circle hole”</h4><blockquote name="4f6b" id="4f6b" class="graf graf--blockquote graf-after--h4">Adding typing into a non-typed language is always gonna be a hard mission to accomplish. TypeScript feels like it put types first and then JavaScript came in. That makes it really odd when you try to do things that have always been in JavaScript or are even new that don’t fit that paradigm.</blockquote><p name="d98c" id="d98c" class="graf graf--p graf-after--blockquote">TypeScript runs just plain JavaScript, and it has a type system that adds checks on top of that. You can do all the things that have always been in JavaScript (if you can’t file a bug ;). It may not have been easy task, but the design they have chosen has been proven in action over and over again.</p><h4 name="93bf" id="93bf" class="graf graf--h4 graf--startsWithDoubleQuote graf-after--p">“TypeScript Definitions”</h4><blockquote name="378d" id="378d" class="graf graf--blockquote graf-after--h4">TypeScript requires definitions for all the files you are using in your application. Makes sense right? It needs to know about everything and those types so it can compile stuff for you. But what if you use a library that isn’t written in TypeScript which is most libraries.</blockquote><p name="36ad" id="36ad" class="graf graf--p graf-after--blockquote">TypeScript doesn’t need definition files for anything. You can use any marginal module you find on npm, just without types. If you are OK with using Babel in the first place, you are OK with having no type information available for parts of your application. Missing type information at the edges doesn’t “pollute” the rest of your application.</p><h4 name="cb88" id="cb88" class="graf graf--h4 graf--startsWithDoubleQuote graf-after--p">“What about FlowType?”</h4><blockquote name="a7fa" id="a7fa" class="graf graf--blockquote graf-after--h4">Given my strong opinion above you would probably think, ya he’s gonna hate that too but actually I don’t. I feel like FlowType puts JavaScript FIRST and types just lay on top. It feels way more natural to me when I’m using it.</blockquote><p name="45f4" id="45f4" class="graf graf--p graf-after--blockquote">This is a subjective feeling. Biggest differences between Flow and TypeScript (and future trajectories of these projects) are probably between quality and scope of the tooling. I don’t know how well resourced (or widely used) Flow project is, but I have been spying on what TypeScript team is doing by skimming the discussions in github tickets, and it has so far been very easy for me to throw my vote of confidence in that direction.</p><h4 name="fbb0" id="fbb0" class="graf graf--h4 graf-after--p">Links</h4><p name="6b11" id="6b11" class="graf graf--p graf-after--h4 graf--trailing">If you are not bored quite yet, you can check my <a href="https://medium.com/@vivainio/typescript-is-pretty-good-d8fecf80ea0c#.193mvxkug" data-href="https://medium.com/@vivainio/typescript-is-pretty-good-d8fecf80ea0c#.193mvxkug" class="markup--anchor markup--p-anchor" target="_blank">earlier blog post</a> in the same theme.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@vivainio" class="p-author h-card">Ville M. Vainio</a> on <a href="https://medium.com/p/68f088b58b6e"><time class="dt-published" datetime="2016-03-06T10:56:05.445Z">March 6, 2016</time></a>.</p><p><a href="https://medium.com/@vivainio/not-a-typescript-fan-68f088b58b6e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 1, 2019.</p></footer></article></body></html>

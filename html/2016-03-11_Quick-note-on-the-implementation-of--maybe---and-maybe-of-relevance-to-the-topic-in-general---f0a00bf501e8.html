@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Quick note on the implementation of “maybe” (and maybe of relevance to the topic in general):</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Quick note on the implementation of “maybe” (and maybe of relevance to the topic in general):</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+This:
+</section>
+<section data-field="body" class="e-content">
+<section name="9f28" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="8e16" id="8e16" class="graf graf--p graf--leading">Quick note on the implementation of “maybe” (and maybe of relevance to the topic in general):</p><p name="0056" id="0056" class="graf graf--p graf-after--p">This:</p><blockquote name="99b9" id="99b9" class="graf graf--blockquote graf-after--p">if (value === null || value === undefined)</blockquote><p name="0a07" id="0a07" class="graf graf--p graf-after--blockquote">Can be more idiomatically expressed by:</p><blockquote name="8ee0" id="8ee0" class="graf graf--blockquote graf-after--p">if (value == null)</blockquote><p name="c62e" id="c62e" class="graf graf--p graf-after--blockquote">I agree on just doing ‘truthy’ checks instead of more explicit checking though, mainly on the basis of being less messy and checks being almost always made against objects, not primitive types.</p><p name="fb67" id="fb67" class="graf graf--p graf-after--p graf--trailing">Somehow, I have ended up using “null” for “value missing”, possibly because undefined ends up there because of programming errors. This may be an unnecessary safeguard, and TS should make errors where undefined’s show up rarer. If TSC source code does not need nulls, I probably need to reconsider this habit ;).</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@vivainio" class="p-author h-card">Ville M. Vainio</a> on <a href="https://medium.com/p/f0a00bf501e8"><time class="dt-published" datetime="2016-03-11T18:17:52.461Z">March 11, 2016</time></a>.</p><p><a href="https://medium.com/@vivainio/quick-note-on-the-implementation-of-maybe-and-maybe-of-relevance-to-the-topic-in-general-f0a00bf501e8" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 1, 2019.</p></footer></article></body></html>
